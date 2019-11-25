@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top mb-5 shadow">
+  <div class="container">
+    <a class="navbar-brand" href="{{ url_for('index') }}">Libreria FDR</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('index') }}"><i class="fa fa-home" aria-hidden="true"></i>
+ {{_('Home')}}
+                        <span class="sr-only">(current)</span>
+                        </a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('libreria.explorar') }}"><i class="fa fa-search" aria-hidden="true"></i> {{ _('Search') }}</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('telegram') }}"><i class="fa fa-envelope-o" aria-hidden="true"></i> {{_('Contact')}} </a>
+                </li>
+                {% if g.user %}
+                        <li class="nav-item active">
+                                <a class="nav-link" href="{{ url_for('libreria.create') }}"><i class="fa fa-plus" aria-hidden="true"></i> {{ _('UploadBook')}}</a>
+                        </li>
+                        <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('libreria.mybooks') }}"><i class="fa fa-book" aria-hidden="true"></i> {{_('MyBooks')}}</a>
+                        </li>
+                {% endif %}
+        <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-globe" aria-hidden="true"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{{ url_for('set_language', language='en') }}" >en</a>
+                        <a class="dropdown-item" href="{{ url_for('set_language', language='es') }}" >es</a>
+                        <a class="dropdown-item" href="{{ url_for('set_language', language='eu_ES') }}" >eus</a>
+                </div>
+        </div>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+                {% if g.user %}
+                        <li><span class="username">{{ g.user['username'] }}</span>
+                                <li><a href="{{ url_for('auth.logout') }}">{{_('LogOut')}}</a>
+                {% else %}
+                        <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('auth.login') }}">{{_('LogIn')}}</a>
+                        </li>
+                        <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('auth.register') }}">{{_('Register')}}</a>
+                        </li>
+                {% endif %}
+        </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+
+{% endblock %}
+
+
+{% block header %}
+<h1>{{_('UploadBook')}}</h1>
+{% endblock %}
+
+{% block content %}
+        <form method="post" enctype=multipart/form-data>
+		<label for="basic-url">{{_('Book')}}</label>
+                <div class="form-group">
+			<label for="Nombre">{{_('Title')}}</label>
+                        <input type="text" class="form-control" placeholder="Titulo" aria-describedby="basic-addon1" name="titulo" id="titulo" required>
+                </div>
+                <div class="form-group">
+			<label for="Nombre">{{_('Author')}}</label>
+                        <input type="text" class="form-control" placeholder="Autor" aria-describedby="basic-addon1" name="autor" id="autor" required>
+                </div>
+              
+                <div class="form-group">
+			<label for="Nombre">{{_('ImageCoverpage')}}</label>
+                        <input type="file" class="form-control" placeholder="portada" aria-describedby="basic-addon1" name="portada" id="portada" required>
+                </div>
+		
+                <div class="form-group">
+			<label for="Nombre">{{_('UploadPDF')}}</label>
+                        <input type="file" class="form-control" placeholder="PDF" aria-describedby="basic-addon1" name="pdf" id="pdf" required>
+                </div>
+	
+                <div class="form-group">
+			<label for="Nombre">{{_('UploadEPUB')}}</label>
+                        <input type="file" class="form-control" placeholder="EPUB" aria-describedby="basic-addon1" name="epub" id="epub" required>
+                </div>
+	
+                <div class="form-group">
+			<label for="Nombre">{{_('Category')}}</label>
+                	<select class="form-control" name="categoria" id="categoria">
+				{% for categoria in categorias %}
+      					<option> {{ categoria.name }} </option>
+		                {% endfor %}
+    			</select>
+		</div>
+
+		<input type="submit" class="btn btn-success" value="{{_('Send')}}">
+        </form>
+{% endblock %}
+

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block header %}
+	<h1>{% block title %}LIBRERIA FDR{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+
+	{% if libros is defined %}
+		<div class="row">
+		{% for libro in libros %}
+  				<div class="col-sm-6 col-md-4">
+    					<div class="thumbnail">
+						<img class= "img-thumbnail" src="data:image/png;base64,{{ libro.image }}" alt="...">
+      						<div class="caption">
+							<h3> {{libro.name}} </h3>
+							<p>{{_('Author')}} {{libro.autor}}</p>
+							<p>{{_('Uploaded')}} {{libro.created}}</p>
+							<p><a href=" {{ libro.download_url }}" class="btn btn-primary" role="button">{{_('Download')}}</a></p>
+      						</div>
+    					</div>
+  				</div>
+		{% endfor %}
+		</div>
+	{% else %}
+		<span> LIBROS	LIBROS	LIBROS	.. </span>
+	{% endif %}
+{% endblock %}

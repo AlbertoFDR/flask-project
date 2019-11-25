@@ -1,0 +1,155 @@
+# Spanish translations for PROJECT.
+# Copyright (C) 2019 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2019-11-13 21:13+0100\n"
+"PO-Revision-Date: 2019-11-13 21:14+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: flaskr/templates/base.html:29 flaskr/templates/explorar.html:15
+#: flaskr/templates/libreria/create.html:14
+#: flaskr/templates/libreria/mybooks.html:14 flaskr/templates/telegram.html:14
+msgid "Home"
+msgstr "Inicio"
+
+#: flaskr/templates/base.html:34 flaskr/templates/explorar.html:20
+#: flaskr/templates/explorar.html:59 flaskr/templates/libreria/create.html:19
+#: flaskr/templates/libreria/mybooks.html:19 flaskr/templates/telegram.html:19
+msgid "Search"
+msgstr "Buscar"
+
+#: flaskr/templates/base.html:37 flaskr/templates/explorar.html:23
+#: flaskr/templates/libreria/create.html:22
+#: flaskr/templates/libreria/mybooks.html:22 flaskr/templates/telegram.html:22
+#: flaskr/templates/telegram.html:55
+msgid "Contact"
+msgstr "Contacto"
+
+#: flaskr/templates/base.html:41 flaskr/templates/explorar.html:27
+#: flaskr/templates/libreria/create.html:26
+#: flaskr/templates/libreria/mybooks.html:26 flaskr/templates/telegram.html:26
+msgid "UploadBook"
+msgstr "Subir libro"
+
+#: flaskr/templates/base.html:44 flaskr/templates/explorar.html:30
+#: flaskr/templates/libreria/create.html:29
+#: flaskr/templates/libreria/mybooks.html:29
+#: flaskr/templates/libreria/mybooks.html:56 flaskr/templates/telegram.html:29
+msgid "MyBooks"
+msgstr "Mis libros"
+
+#: flaskr/templates/base.html:51 flaskr/templates/explorar.html:37
+#: flaskr/templates/libreria/create.html:36
+#: flaskr/templates/libreria/mybooks.html:36 flaskr/templates/telegram.html:36
+msgid "LogOut"
+msgstr "Cerrar sesión"
+
+#: flaskr/templates/auth/login.html:4 flaskr/templates/auth/login.html:13
+#: flaskr/templates/base.html:54 flaskr/templates/explorar.html:40
+#: flaskr/templates/libreria/create.html:39
+#: flaskr/templates/libreria/mybooks.html:39 flaskr/templates/telegram.html:39
+msgid "LogIn"
+msgstr "Iniciar sesión"
+
+#: flaskr/templates/auth/register.html:4 flaskr/templates/auth/register.html:30
+#: flaskr/templates/base.html:57 flaskr/templates/explorar.html:43
+#: flaskr/templates/libreria/create.html:42
+#: flaskr/templates/libreria/mybooks.html:42 flaskr/templates/telegram.html:42
+msgid "Register"
+msgstr "Registrarse"
+
+#: flaskr/templates/explorar.html:53
+msgid "SearchBook"
+msgstr "Buscar libro"
+
+#: flaskr/templates/telegram.html:61
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: flaskr/templates/telegram.html:63
+msgid "EmailSubject"
+msgstr "Asunto:"
+
+#: flaskr/templates/telegram.html:67
+msgid "EmailMsg"
+msgstr "Mensaje:"
+
+#: flaskr/templates/telegram.html:76
+msgid "TelegramName"
+msgstr "Nombre:"
+
+#: flaskr/templates/telegram.html:80
+msgid "TelegramMsg"
+msgstr "Mensaje:"
+
+#: flaskr/templates/auth/login.html:9 flaskr/templates/auth/register.html:11
+#: flaskr/templates/auth/register.html:14
+msgid "Username"
+msgstr "Usuario:"
+
+#: flaskr/templates/auth/login.html:11 flaskr/templates/auth/register.html:20
+#: flaskr/templates/auth/register.html:23
+msgid "Password"
+msgstr "Contraseñ:a"
+
+#: flaskr/templates/libreria/create.html:61
+msgid "Book"
+msgstr "Libro"
+
+#: flaskr/templates/libreria/create.html:63
+msgid "Title"
+msgstr "Titulo:"
+
+#: flaskr/templates/libreria/create.html:67
+#: flaskr/templates/libreria/download.html:18
+#: flaskr/templates/libreria/index.html:17
+#: flaskr/templates/libreria/mybooks.html:62
+msgid "Author"
+msgstr "Autor:"
+
+#: flaskr/templates/libreria/create.html:72
+msgid "ImageCoverpage"
+msgstr "Portada:"
+
+#: flaskr/templates/libreria/create.html:77
+msgid "UploadPDF"
+msgstr "Subir PDF:"
+
+#: flaskr/templates/libreria/create.html:82
+msgid "UploadEPUB"
+msgstr "Subir EPUB:"
+
+#: flaskr/templates/libreria/create.html:87
+msgid "Category"
+msgstr "Categorí:a"
+
+#: flaskr/templates/libreria/create.html:95
+msgid "Send"
+msgstr "Enviar"
+
+#: flaskr/templates/libreria/download.html:19
+#: flaskr/templates/libreria/index.html:18
+#: flaskr/templates/libreria/mybooks.html:63
+msgid "Uploaded"
+msgstr "Creado:"
+
+#: flaskr/templates/libreria/download.html:20
+msgid "Downloads"
+msgstr "Descargas:"
+
+#: flaskr/templates/libreria/index.html:19
+msgid "Download"
+msgstr "Descargar"
+

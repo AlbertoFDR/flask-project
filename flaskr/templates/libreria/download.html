@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block header %}
+<h1>{% block title %}{{libro.name}}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+	<div class="jumbotro">
+		<p class="lead">
+		<div class="center">
+				<img class="img-fluid" src="data:image/png;base64,{{ libro.image }}" alt="...">
+		</div>
+		</p>
+  		<hr class="my-4">
+		<p> {{_('Author')}} {{ libro.autor }} </p>
+		<p> {{_('Uploaded')}} {{ libro.created }} </p>
+		<p> {{_('Downloads')}} {{ libro.descargas }} </p>
+		<div class="center" id="downloadButton">
+			<a class="btn btn-primary btn-lg" href="{{libro.download_pdf}}" role="button">PDF</a>
+			<div class="divider"></div>
+			<a class="btn btn-secondary btn-lg" href="{{libro.download_epub}}" role="button">EPUB</a>
+		</div>	
+	</div>
+{% endblock %}

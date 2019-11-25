@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+
+{% block navbar %}
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top mb-5 shadow">
+  <div class="container">
+    <a class="navbar-brand" href="{{ url_for('index') }}">Libreria FDR</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('index') }}"><i class="fa fa-home" aria-hidden="true"></i>
+ {{_('Home')}}
+                        <span class="sr-only">(current)</span>
+                        </a>
+                </li>
+                <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('libreria.explorar') }}"><i class="fa fa-search" aria-hidden="true"></i> {{ _('Search') }}</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('telegram') }}"><i class="fa fa-envelope-o" aria-hidden="true"></i> {{_('Contact')}} </a>
+                </li>
+                {% if g.user %}
+                        <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('libreria.create') }}"><i class="fa fa-plus" aria-hidden="true"></i> {{ _('UploadBook')}}</a>
+                        </li>
+                        <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('libreria.mybooks') }}"><i class="fa fa-book" aria-hidden="true"></i> {{_('MyBooks')}}</a>
+                        </li>
+                {% endif %}
+        <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-globe" aria-hidden="true"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{{ url_for('set_language', language='en') }}" >en</a>
+                        <a class="dropdown-item" href="{{ url_for('set_language', language='es') }}" >es</a>
+                        <a class="dropdown-item" href="{{ url_for('set_language', language='eu_ES') }}" >eus</a>
+                </div>
+        </div>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+                {% if g.user %}
+                        <li><span class="username">{{ g.user['username'] }}</span>
+                                <li><a href="{{ url_for('auth.logout') }}">{{_('LogOut')}}</a>
+                {% else %}
+                        <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('auth.login') }}">{{_('LogIn')}}</a>
+                        </li>
+                        <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('auth.register') }}">{{_('Register')}}</a>
+                        </li>
+                {% endif %}
+        </ul>
+    </div>
+  </div>
+</nav>
+
+
+{% endblock %}
+
+{% block header %}
+<h1>{% block title %}{{_('SearchBook')}}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+	<form method="post" class="form-inline my-2 justify-content-center">
+		<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" id='busqueda' name='busqueda'>
+		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">{{_('Search')}}</button>
+	</form>
+	{% if libros is defined %}
+                <div class="row">
+                {% for libro in libros %}
+                                <div class="col-sm-6 col-md-4">
+                                        <div class="thumbnail">
+                                                <img class= "img-thumbnail" src="data:image/png;base64,{{ libro.image }}" alt="...">
+                                                <div class="caption">
+                                                        <h3> {{libro.name}} </h3>
+                                                        <p>{{_('Author')}} {{libro.autor}}</p>
+                                                        <p>{{_('Uploaded')}} {{libro.created}}</p>
+                                                        <p><a href=" {{ libro.download_url }}" class="btn btn-primary" role="button">{{_('Download')}}</a></p>
+                                                </div>
+                                        </div>
+                                </div>
+                {% endfor %}
+                </div>
+	{% else %}
+                <span>NO RESULT</span>
+        {% endif %}
+{% endblock %}
