@@ -1,0 +1,15 @@
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.phonegap.example" versionCode="10" version="1.0.0">
+<!--  versionCode is optional and Android only  -->
+<name>Librería FDR</name>
+<description>Librería</description>
+<author href="https://albertofdr.github.io" email="albertofdr@opendeusto.com">Alberto FDR</author>
+<gap:plugin name="cordova-plugin-whitelist" source="npm"/>
+<content src="index.html"/>
+<access origin="*"/>
+<!--
+<plugin name="cordova-plugin-whitelist" spec="1" />
+-->
+<allow-navigation href="http://*/*"/>
+<allow-intent href="https://*/*"/>
+<allow-intent href="http://*/*"/>
+</widget>
