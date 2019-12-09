@@ -20,7 +20,7 @@ pycparser==2.19
 PyMySQL==0.9.3
 pyTelegramBotAPI==3.6.6
 pytz==2019.3
-requests==2.7.0
+requests==2.20.0
 six==1.12.0
 SQLAlchemy==1.3.10
 telebot==0.0.3
